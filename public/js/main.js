@@ -324,19 +324,15 @@ $(document).ready(function(){
 	
   });
 
-//let navHeight = $("nav").outerHeight(true);
-//let nav = $("nav").offset().top;
 $(window).scroll( () => {
 	
-
-	let tmp = 160;
 	let navElem = $(".nav-item")[0];
-	
-	if($("nav").offset().top <= 90){
+
+	if($("nav").offset().top <= 160){
 		$(navElem).addClass("active");
 	}
 
-	if($("nav").offset().top > 90){
+	if($("nav").offset().top > 160){
 		$(navElem).removeClass("active");
 	}
 
