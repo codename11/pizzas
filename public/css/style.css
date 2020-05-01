@@ -8973,3 +8973,29 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+#cart{
+  position: fixed;
+  top: 50%;
+  right: 0;
+  font-size: 2em;
+  background-color: #fac564;
+  opacity: 0.5;
+  z-index: 999;
+  width: 40px;
+  border: 2px solid whitesmoke;
+  border-top-left-radius: 5%;
+  border-bottom-left-radius: 5%;
+  text-align: center;
+  transition: width 1s, text-align 1s;
+}
+
+#cart:hover{
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#cart-ico{
+  color: orange;
+}
