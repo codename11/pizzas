@@ -29,6 +29,8 @@
     <link href="{{ asset('css/flaticon.css') }}" rel="stylesheet">
     <link href="{{ asset('css/icomoon.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    
   </head>
   <body data-spy="scroll" data-target=".ftco_navbar" data-offset="160">
   	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">

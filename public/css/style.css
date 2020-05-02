@@ -8999,3 +8999,9 @@ textarea.form-control {
 #cart-ico{
   color: orange;
 }
+
+.stil{
+  background-color: red;
+  border: 3px solid green;
+ 
+}
