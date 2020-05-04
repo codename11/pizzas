@@ -9033,5 +9033,7 @@ textarea.form-control {
 
 #myModal{
   position: fixed;
-  top: 45%;
+  top: 13%;
+  z-index: 99999;
 }
+

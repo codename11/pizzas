@@ -106,6 +106,20 @@ class Articles extends React.Component {
 
         }) : null;
 
+        let form = checkboxes && checkboxes.length === 0 ? "Your basket is empty" : <form id="cartForm" onSubmit={this.handleSubmit}>
+                {checkboxes}
+
+                <label>
+                    <input type="text" placeholder=" username" name="username" id="username" defaultValue={this.props.authUser ? this.props.authUser.name : ""}/>
+                    
+                </label><br/>
+                <label>
+                    <input type="text" placeholder=" address" name="address" id="address"  defaultValue={this.props.authUser ? this.props.authUser.address : ""}/>
+                    
+                </label>
+                <br/><button type="submit" className="btn btn-primary">Submit</button>
+            </form>;
+
         return (
   
             <div>
@@ -123,32 +137,19 @@ class Articles extends React.Component {
                         </div>
                     </div>
                 </div>
-
                 
                 <div className="modal" id="myModal">
                     <div className="modal-dialog">
                         <div className="modal-content">
 
                         <div className="modal-header">
-                            <h4 className="modal-title">Modal Heading</h4>
+                            <p className="modal-title">Your order:</p>
                             <button type="button" className="close" data-dismiss="modal">&times;</button>
                         </div>
 
                         <div className="modal-body">
                             
-                            <form id="cartForm" onSubmit={this.handleSubmit}>
-                                {checkboxes}
-
-                                <label>
-                                    <input type="text" name="username" id="username" defaultValue={this.props.authUser ? this.props.authUser.name : ""}/>
-                                    username
-                                </label>
-                                <label>
-                                    <input type="text" name="address" id="address"  defaultValue={this.props.authUser ? this.props.authUser.address : ""}/>
-                                    address
-                                </label>
-                                <br/><button type="submit" className="btn btn-primary">Submit</button>
-                            </form>
+                            {form}
 
                         </div>
 
