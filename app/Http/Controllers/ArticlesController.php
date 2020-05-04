@@ -101,6 +101,14 @@ class ArticlesController extends Controller
 
             $order = new Order;
             $order->customer_id = $customer->id;
+            $total_price = 0;
+            for($i=0;$i<count($request->articleIds);$i++){
+
+                $article = Article::find($request->articleIds[$i]);
+                $total_price += $article->price;
+                
+            }
+            $order->total_price = $total_price;
             $order->save();
 
             foreach($array as $key => $value){
