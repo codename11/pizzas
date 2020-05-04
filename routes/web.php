@@ -18,9 +18,11 @@ Auth::routes();
 Route::get('/dashboard', 'HomeController@dashboard');
 Route::get('/', 'HomeController@main');
 
-Route::get('/articles', 'ArticlesController@indexAll');
-Route::get('/articles/{type}', 'ArticlesController@indexSpec');
+//Route::get('/articles', 'ArticlesController@indexAll');
+Route::get('/articles', 'ArticlesController@indexSpec');
+//Route::get('/articles/{type}', 'ArticlesController@indexSpec');
 Route::get('/article/{id}', 'ArticlesController@show');
+Route::post('/article/store', 'ArticlesController@store');
 
 Route::get('/customers', 'CustomersController@index');
 Route::get('/customer/{id}', 'CustomersController@show');

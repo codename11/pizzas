@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Order;
+use App\Order_details;
+use App\Customer;
+use Auth;
+use App\User;
 
 class ArticlesController extends Controller
 {
@@ -14,27 +19,43 @@ class ArticlesController extends Controller
      */
     public function indexAll(Request $request)
     {
-        $articles = Article::all();
+        if($request->ajax()){
 
-        $response = array(
-            "articles" => $articles,
-            "request" => $request->all(),
-        );
-        
-        return response()->json($response);
+            $articles = Article::all();
+            $types = $articles->pluck("type");
+            $pizza = Article::where("type", "=", "pizza")->get();
+
+            $response = array(
+                //'pagination'=>(string) $pizza->links(),
+                "types" => $types,
+                "articles" => $articles,
+            );
+            
+            return response()->json($response);
+
+        }
     }
 
-    public function indexSpec(Request $request, $type)
+    public function indexSpec(Request $request)
     {
-        $articles = Article::where("type", "=", $type)->get();
+        if($request->ajax()){
+            $defaultType = "pizza";
+            $type = $request->type ? $request->type : $defaultType;
 
-        $response = array(
-            "articles" => $articles,
-            "type" => $type,
-            "request" => $request->all(),
-        );
-        
-        return response()->json($response);
+            $articlesAll = Article::all();
+            $types = $articlesAll->pluck("type");
+
+            $articles = Article::where("type", "=", $type)->get();
+
+            $response = array(
+                "authUser" => auth()->user() ? auth()->user() : null,
+                "articles" => $articles,
+                "types" => $types,
+                "type" => $type,
+            );
+            
+            return response()->json($response);
+        }
     }
 
     /**
@@ -44,7 +65,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -55,7 +76,51 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        
+        if($request->ajax()){
+
+            $array = array_count_values($request->articleIds);
+
+            $customer = null;
+            if($request->ifRegistred){
+
+                $user = User::find($request->ifRegistred);
+                $customer = new Customer;
+                $customer->username = $user->name;
+                $customer->address = $user->address;
+                $customer->save();
+
+            }
+            else{
+
+                $customer = new Customer;
+                $customer->username = $request->username;
+                $customer->address = $request->address;
+                $customer->save();
+
+            }
+
+            $order = new Order;
+            $order->customer_id = $customer->id;
+            $order->save();
+
+            foreach($array as $key => $value){
+                $order_details = new Order_details;
+                $order_details->order_id = $order->id;
+                $order_details->article_id = $key;
+                $order_details->quantity = $value;
+                $order_details->save();
+            }
+            
+            $response = array(
+                "array" => $array,
+                "message" => "bravo",
+                "articleIds" => $request->articleIds,
+                "user" => $request->username,
+                "requestAll" => $request->all(),
+            );
+            
+            return response()->json($response);
+        }
     }
 
     /**

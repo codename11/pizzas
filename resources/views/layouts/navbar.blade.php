@@ -7,6 +7,9 @@
     
     <link rel="shortcut icon" href="{{ asset('pizza.webp') }}" />
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
@@ -63,9 +66,7 @@
 	  </nav>
     <!-- END nav -->
 
-    <div id="cart">
-      <span class="icon-cart-plus" id="cart-ico"></span>
-    </div>
+    
     
     <section id="top" class="home-slider owl-carousel img" style="background-image: url(images/bg_1.jpg);">
       <div class="slider-item">
@@ -686,5 +687,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{{ asset('js/google-map.js') }}" defer></script>
 <script src="{{ asset('js/main.js') }}" defer></script>
   
+<script>
+  
+</script>
+
 </body>
 </html>

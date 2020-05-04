@@ -16,3 +16,4 @@ require('./components/Example');
 
 require('./components/main');
 require('./components/menunavbar');
+require('./components/articles');
