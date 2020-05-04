@@ -37,6 +37,3 @@ Route::get('/order_detail/{id}', 'Order_detailsController@show');
 
 Route::get('/order_detail/{id}/order_details', 'Order_detailsController@order_details');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
