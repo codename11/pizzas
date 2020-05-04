@@ -14,8 +14,8 @@
                         </div>
                     @endif
 
-                    You are logged in!
-                    
+                    You are logged in!<br/>
+                    <a href="/" class="btn btn-outline-info" role="button">Go to Pizzas</a>
                 </div>
             </div>
         </div>
