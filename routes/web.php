@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
-
 Route::get('/dashboard', 'HomeController@dashboard');
 Route::get('/', 'HomeController@main');
 
@@ -37,3 +35,4 @@ Route::get('/order_detail/{id}', 'Order_detailsController@show');
 
 Route::get('/order_detail/{id}/order_details', 'Order_detailsController@order_details');
 
+Auth::routes();
