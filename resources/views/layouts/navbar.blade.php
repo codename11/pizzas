@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <link rel="shortcut icon" href="pizza.webp" />
-
+    <!--{{ secure_asset(...) }} samo za heroku-->
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
