@@ -12,8 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/dashboard', 'HomeController@dashboard');
+Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 Route::get('/', 'HomeController@main');
 
 //Route::get('/articles', 'ArticlesController@indexAll');
@@ -29,12 +30,8 @@ Route::get('/customer/{id}/order_details', 'CustomersController@order_details');
 Route::get('/orders', 'OrdersController@index');
 Route::get('/order/{id}', 'OrdersController@show');
 
-
 Route::get('/order_details', 'Order_detailsController@index');
 Route::get('/order_detail/{id}', 'Order_detailsController@show');
 
 Route::get('/order_detail/{id}/order_details', 'Order_detailsController@order_details');
 
-Auth::routes();
-
-Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
