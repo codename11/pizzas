@@ -47,7 +47,7 @@ class Articles extends React.Component {
             success: (response) => { 
 
                 console.log("success");
-                //console.log(response);  
+                console.log(response);  
                 $("#myModal").modal("hide"); 
 
                 this.setState({
@@ -78,7 +78,7 @@ class Articles extends React.Component {
     }
 
     render(){
-        //console.log(this.props);
+        console.log(this.props);
         let data = this.props.articlesData ? this.props.articlesData.map((item, i) => {
 
             return <div key={i} className="col-md-4 text-center">

@@ -66049,8 +66049,8 @@ var Articles = /*#__PURE__*/function (_React$Component) {
         },
         dataType: "JSON",
         success: function success(response) {
-          console.log("success"); //console.log(response);  
-
+          console.log("success");
+          console.log(response);
           $("#myModal").modal("hide");
 
           _this2.setState({
@@ -66078,7 +66078,7 @@ var Articles = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      //console.log(this.props);
+      console.log(this.props);
       var data = this.props.articlesData ? this.props.articlesData.map(function (item, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: i,
