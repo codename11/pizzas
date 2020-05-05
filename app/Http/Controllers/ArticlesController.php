@@ -41,7 +41,7 @@ class ArticlesController extends Controller
         if($request->ajax()){
             $defaultType = "pizza";
             $type = $request->type ? $request->type : $defaultType;
-
+            $users = User::all();
             $articlesAll = Article::all();
             $types = $articlesAll->pluck("type");
 
@@ -52,6 +52,7 @@ class ArticlesController extends Controller
                 "articles" => $articles,
                 "types" => $types,
                 "type" => $type,
+                "users" => $users,
             );
             
             return response()->json($response);
