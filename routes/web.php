@@ -14,24 +14,24 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
-Route::get('/', 'HomeController@main');
+Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard')->middleware('cors');
+Route::get('/', 'HomeController@main')->middleware('cors');
 
 //Route::get('/articles', 'ArticlesController@indexAll');
-Route::get('/articles', 'ArticlesController@indexSpec');
+Route::get('/articles', 'ArticlesController@indexSpec')->middleware('cors');
 //Route::get('/articles/{type}', 'ArticlesController@indexSpec');
-Route::get('/article/{id}', 'ArticlesController@show');
-Route::post('/article/store', 'ArticlesController@store');
+Route::get('/article/{id}', 'ArticlesController@show')->middleware('cors');
+Route::post('/article/store', 'ArticlesController@store')->middleware('cors');
 
-Route::get('/customers', 'CustomersController@index');
-Route::get('/customer/{id}', 'CustomersController@show');
-Route::get('/customer/{id}/order_details', 'CustomersController@order_details');
+Route::get('/customers', 'CustomersController@index')->middleware('cors');
+Route::get('/customer/{id}', 'CustomersController@show')->middleware('cors');
+Route::get('/customer/{id}/order_details', 'CustomersController@order_details')->middleware('cors');
 
-Route::get('/orders', 'OrdersController@index');
-Route::get('/order/{id}', 'OrdersController@show');
+Route::get('/orders', 'OrdersController@index')->middleware('cors');
+Route::get('/order/{id}', 'OrdersController@show')->middleware('cors');
 
-Route::get('/order_details', 'Order_detailsController@index');
-Route::get('/order_detail/{id}', 'Order_detailsController@show');
+Route::get('/order_details', 'Order_detailsController@index')->middleware('cors');
+Route::get('/order_detail/{id}', 'Order_detailsController@show')->middleware('cors');
 
-Route::get('/order_detail/{id}/order_details', 'Order_detailsController@order_details');
+Route::get('/order_detail/{id}/order_details', 'Order_detailsController@order_details')->middleware('cors');
 
