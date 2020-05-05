@@ -14,25 +14,25 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
 
-    <link href="css/open-iconic-bootstrap.min.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
+    <link href="{{ asset('css/open-iconic-bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
 
-    <link href="css/owl.carousel.min.css" rel="stylesheet">
-    <link href="css/owl.theme.default.min.css" rel="stylesheet">
-    <link href="css/magnific-popup.css" rel="stylesheet">
+    <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/owl.theme.default.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/magnific-popup.css') }}" rel="stylesheet">
 
-    <link href="css/aos.css" rel="stylesheet">
+    <link href="{{ asset('css/aos.css') }}" rel="stylesheet">
 
-    <link href="css/ionicons.min.css" rel="stylesheet">
+    <link href="{{ asset('css/ionicons.min.css') }}" rel="stylesheet">
 
-    <link href="css/bootstrap-datepicker.css" rel="stylesheet">
-    <link href="css/jquery.timepicker.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/jquery.timepicker.css') }}" rel="stylesheet">
 
     
-    <link href="css/flaticon.css" rel="stylesheet">
-    <link href="css/icomoon.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <script src="js/app.js" defer></script>
+    <link href="{{ asset('css/flaticon.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icomoon.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}" defer></script>
     
   </head>
   <body data-spy="scroll" data-target=".ftco_navbar" data-offset="160">
@@ -673,19 +673,19 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}" defer></script>
 <!--<script src="{{ asset('js/popper.min.js') }}" defer></script>-->
 <!--<script src="{{ asset('js/bootstrap.min.js') }}" defer></script>-->
-<script src="js/jquery.easing.1.3.js" defer></script>
-<script src="js/jquery.waypoints.min.js" defer></script>
-<script src="js/jquery.stellar.min.js" defer></script>
-<script src="js/owl.carousel.min.js" defer></script>
-<script src="js/jquery.magnific-popup.min.js" defer></script>
-<script src="js/aos.js" defer></script>
-<script src="js/jquery.animateNumber.min.js" defer></script>
-<script src="js/bootstrap-datepicker.js" defer></script>
-<script src="js/jquery.timepicker.min.js" defer></script>
-<script src="js/scrollax.min.js" defer></script>
+<script src="{{ asset('js/jquery.easing.1.3.js') }}" defer></script>
+<script src="{{ asset('js/jquery.waypoints.min.js') }}" defer></script>
+<script src="{{ asset('js/jquery.stellar.min.js') }}" defer></script>
+<script src="{{ asset('js/owl.carousel.min.js') }}" defer></script>
+<script src="{{ asset('js/jquery.magnific-popup.min.js') }}" defer></script>
+<script src="{{ asset('js/aos.js') }}" defer></script>
+<script src="{{ asset('js/jquery.animateNumber.min.js') }}" defer></script>
+<script src="{{ asset('js/bootstrap-datepicker.js') }}" defer></script>
+<script src="{{ asset('js/jquery.timepicker.min.js') }}" defer></script>
+<script src="{{ asset('js/scrollax.min.js') }}" defer></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNhe45otXCcDn2ZV1dqla-IyYTyLm1HDU&sensor=false"></script>
-<script src="js/google-map.js" defer></script>
-<script src="js/main.js" defer></script>
+<script src="{{ asset('js/google-map.js') }}" defer></script>
+<script src="{{ asset('js/main.js') }}" defer></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" defer></script>
