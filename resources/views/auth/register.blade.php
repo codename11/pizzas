@@ -65,7 +65,7 @@
                             <label for="address" class="col-md-4 col-form-label text-md-right">Address</label>
 
                             <div class="col-md-6">
-                                <input id="ddress" type="text" class="form-control" name="address" required>
+                                <input id="address" type="text" class="form-control" name="address" required>
                             </div>
                         </div>
 
