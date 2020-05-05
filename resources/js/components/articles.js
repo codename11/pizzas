@@ -31,7 +31,7 @@ class Articles extends React.Component {
 
         }
 
-        console.log(this.props);
+        //console.log(this.props);
 
         let username = this.props.authUser ? this.props.authUser.name : document.getElementById("username").value;
         let address = this.props.authUser ? this.props.authUser.address : document.getElementById("address").value;
@@ -47,7 +47,7 @@ class Articles extends React.Component {
             success: (response) => { 
 
                 console.log("success");
-                console.log(response);  
+                //console.log(response);  
                 $("#myModal").modal("hide"); 
 
                 this.setState({
@@ -78,7 +78,7 @@ class Articles extends React.Component {
     }
 
     render(){
-        console.log(this.props);
+        //console.log(this.props);
         let data = this.props.articlesData ? this.props.articlesData.map((item, i) => {
 
             return <div key={i} className="col-md-4 text-center">

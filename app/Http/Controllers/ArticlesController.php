@@ -47,12 +47,16 @@ class ArticlesController extends Controller
 
             $articles = Article::where("type", "=", $type)->get();
 
+            $orders = Order::all();
+            $order_details = Order_details::all();
             $response = array(
                 "authUser" => auth()->user() ? auth()->user() : null,
                 "articles" => $articles,
                 "types" => $types,
                 "type" => $type,
                 "users" => $users,
+                "orders" => $orders,
+                "order_details" => $order_details,
             );
             
             return response()->json($response);
