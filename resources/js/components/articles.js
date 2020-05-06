@@ -31,8 +31,6 @@ class Articles extends React.Component {
 
         }
 
-        //console.log(this.props);
-
         let username = this.props.authUser ? this.props.authUser.name : document.getElementById("username").value;
         let address = this.props.authUser ? this.props.authUser.address : document.getElementById("address").value;
         let token = document.querySelector("meta[name='csrf-token']").getAttribute("content");
@@ -78,7 +76,7 @@ class Articles extends React.Component {
     }
 
     render(){
-        //console.log(this.props);
+        
         let data = this.props.articlesData ? this.props.articlesData.map((item, i) => {
 
             return <div key={i} className="col-md-4 text-center">
@@ -97,9 +95,9 @@ class Articles extends React.Component {
 
         let checkboxes = this.state.cart ? this.state.cart.map((item, i) => {
 
-            return <div key={i}>
-                <label>
-                    <input id={"cart"+i} name={"cart"+i} type="checkbox" value={item.id} defaultChecked/>
+            return <div key={i} className="form-check">
+                <label className="form-check-label">
+                    <input class="form-check-input" id={"cart"+i} name={"cart"+i} type="checkbox" value={item.id} defaultChecked/>
                     {item.title}
                 </label><br/>
           </div>;
@@ -111,13 +109,15 @@ class Articles extends React.Component {
 
                 <label>
                     <input type="text" placeholder=" username" name="username" id="username" defaultValue={this.props.authUser ? this.props.authUser.name : ""}/>
-                    
-                </label><br/>
-                <label>
-                    <input type="text" placeholder=" address" name="address" id="address"  defaultValue={this.props.authUser ? this.props.authUser.address : ""}/>
-                    
                 </label>
-                <br/><button type="submit" className="btn btn-primary">Submit</button>
+                <br/>
+                
+                <label>
+                    <input type="text" placeholder=" address" name="address" id="address"  defaultValue={this.props.authUser ? this.props.authUser.address : ""}/>   
+                </label>
+                <br/>
+
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>;
 
         return (

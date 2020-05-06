@@ -66030,8 +66030,7 @@ var Articles = /*#__PURE__*/function (_React$Component) {
         if (forma[i].checked === true) {
           articleIds.push(forma[i].value);
         }
-      } //console.log(this.props);
-
+      }
 
       var username = this.props.authUser ? this.props.authUser.name : document.getElementById("username").value;
       var address = this.props.authUser ? this.props.authUser.address : document.getElementById("address").value;
@@ -66078,7 +66077,6 @@ var Articles = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      //console.log(this.props);
       var data = this.props.articlesData ? this.props.articlesData.map(function (item, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: i,
@@ -66107,8 +66105,12 @@ var Articles = /*#__PURE__*/function (_React$Component) {
       }) : null;
       var checkboxes = this.state.cart ? this.state.cart.map(function (item, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          key: i
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          key: i,
+          className: "form-check"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          className: "form-check-label"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          "class": "form-check-input",
           id: "cart" + i,
           name: "cart" + i,
           type: "checkbox",
@@ -66362,8 +66364,7 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
         },
         dataType: 'JSON',
         success: function success(response) {
-          console.log("success");
-          console.log(response);
+          console.log("success"); //console.log(response);  
 
           _this2.setState(_objectSpread({}, response));
         },
