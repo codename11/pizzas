@@ -31,8 +31,6 @@ class Articles extends React.Component {
 
         }
 
-        //console.log(this.props);
-
         let username = this.props.authUser ? this.props.authUser.name : document.getElementById("username").value;
         let address = this.props.authUser ? this.props.authUser.address : document.getElementById("address").value;
         let token = document.querySelector("meta[name='csrf-token']").getAttribute("content");
@@ -78,7 +76,7 @@ class Articles extends React.Component {
     }
 
     render(){
-        //console.log(this.props);
+        
         let data = this.props.articlesData ? this.props.articlesData.map((item, i) => {
 
             return <div key={i} className="col-md-4 text-center">

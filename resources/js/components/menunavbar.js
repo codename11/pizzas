@@ -38,7 +38,7 @@ class MenuNavbar extends React.Component {
             success: (response) => { 
 
                 console.log("success");
-                console.log(response);  
+                //console.log(response);  
                 
                 this.setState({...response});
     
