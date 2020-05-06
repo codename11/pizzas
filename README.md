@@ -66,4 +66,12 @@ For anyone wanting to see how it looks live with db and all, you can check it ou
 as i said, Heroku has it's own set of peculiarities which i couldn't resolve at the time. And it's my first time ever using Heroku.
 
 Notice: Heroku's issues for file uploads can be circumvented by uploadind directly into public folder of Laravel project, but consulting docs and various forums posts, it's not "by the book" thing to do so to speak. I've done file uploads with symlinks and everything Laravel before, but only on shared hosting, see my "MyTube" app. True, it miserable hosting with free plan, but it works as any other shared hosting.
+Also, as is NOT stated in pdf with user stories, there are no ways of entering new articles, except via Laravel database seeders or manually(ugh) writing queries.
 
+Also, i used different branch for Heroku because of it's peculiarities.
+
+Heroku branch:
+[alt](https://github.com/codename11/pizzas/tree/herokubranch)
+
+and Master branch which have all functionalities including uploaded images:
+[main](https://github.com/codename11/pizzas/tree/master)
