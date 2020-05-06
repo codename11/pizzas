@@ -9037,3 +9037,8 @@ textarea.form-control {
   z-index: 99999;
 }
 
+#total_price_num{
+  border-top: 1px solid whitesmoke;
+  border-bottom: 1px solid whitesmoke;
+  background-color: #fff3cd;
+}

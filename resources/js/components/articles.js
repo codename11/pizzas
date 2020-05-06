@@ -9,10 +9,43 @@ class Articles extends React.Component {
             cart: [],
             cartLen: null,
             elemchecked: new Map(),
+            total_price: 0,
         };
         this.addToCart = this.addToCart.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.checkCart = this.checkCart.bind(this);
 
+    }
+
+    checkCart(){
+
+        let forma = document.getElementById("cartForm");
+          
+        let prices = [];
+        
+        for(let i=0;i<forma.length-1;i++){
+
+            if(forma[i].checked === true){
+
+                prices.push(forma[i].getAttribute("data-price"));
+                
+            }
+
+        }
+
+        let total_price = 0;
+        for(let i=0;i<prices.length;i++){
+
+            
+            total_price +=  Number(prices[i]);
+            
+
+        }
+
+        this.setState({
+            total_price: total_price,
+        });
+        
     }
 
     handleSubmit(e) {
@@ -20,7 +53,7 @@ class Articles extends React.Component {
         let forma = e.target;
           
         let articleIds = [];
-
+        
         for(let i=0;i<forma.length-1;i++){
 
             if(forma[i].checked === true){
@@ -71,6 +104,7 @@ class Articles extends React.Component {
         this.setState({
             cart: [...this.state.cart, item],
             cartLen: this.state.cart.length+1,
+            total_price: this.state.total_price + Number(item.price),
         });
 
     }
@@ -95,9 +129,9 @@ class Articles extends React.Component {
 
         let checkboxes = this.state.cart ? this.state.cart.map((item, i) => {
 
-            return <div key={i}>
-                <label>
-                    <input id={"cart"+i} name={"cart"+i} type="checkbox" value={item.id} defaultChecked/>
+            return <div key={i} className="form-check">
+                <label className="form-check-label">
+                    <input className="form-check-input" id={"cart"+i} name={"cart"+i} type="checkbox" value={item.id} data-price={item.price} defaultChecked onChange={this.checkCart}/>
                     {item.title}
                 </label><br/>
           </div>;
@@ -106,16 +140,18 @@ class Articles extends React.Component {
 
         let form = checkboxes && checkboxes.length === 0 ? "Your basket is empty" : <form id="cartForm" onSubmit={this.handleSubmit}>
                 {checkboxes}
-
+                
                 <label>
                     <input type="text" placeholder=" username" name="username" id="username" defaultValue={this.props.authUser ? this.props.authUser.name : ""}/>
-                    
-                </label><br/>
-                <label>
-                    <input type="text" placeholder=" address" name="address" id="address"  defaultValue={this.props.authUser ? this.props.authUser.address : ""}/>
-                    
                 </label>
-                <br/><button type="submit" className="btn btn-primary">Submit</button>
+                <br/>
+                
+                <label>
+                    <input type="text" placeholder=" address" name="address" id="address"  defaultValue={this.props.authUser ? this.props.authUser.address : ""}/>   
+                </label>
+                <br/>
+
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>;
 
         return (
@@ -148,6 +184,11 @@ class Articles extends React.Component {
                         <div className="modal-body">
                             
                             {form}
+                            <div id="total_price">Total price:</div>
+
+                            <div id="total_price_num">
+                                {this.state.total_price}
+                            </div>
 
                         </div>
 

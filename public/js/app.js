@@ -66010,14 +66010,38 @@ var Articles = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       cart: [],
       cartLen: null,
-      elemchecked: new Map()
+      elemchecked: new Map(),
+      total_price: 0
     };
     _this.addToCart = _this.addToCart.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.checkCart = _this.checkCart.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Articles, [{
+    key: "checkCart",
+    value: function checkCart() {
+      var forma = document.getElementById("cartForm");
+      var prices = [];
+
+      for (var i = 0; i < forma.length - 1; i++) {
+        if (forma[i].checked === true) {
+          prices.push(forma[i].getAttribute("data-price"));
+        }
+      }
+
+      var total_price = 0;
+
+      for (var _i = 0; _i < prices.length; _i++) {
+        total_price += Number(prices[_i]);
+      }
+
+      this.setState({
+        total_price: total_price
+      });
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       var _this2 = this;
@@ -66069,7 +66093,8 @@ var Articles = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       this.setState({
         cart: [].concat(_toConsumableArray(this.state.cart), [item]),
-        cartLen: this.state.cart.length + 1
+        cartLen: this.state.cart.length + 1,
+        total_price: this.state.total_price + Number(item.price)
       });
     }
   }, {
@@ -66105,13 +66130,19 @@ var Articles = /*#__PURE__*/function (_React$Component) {
       }) : null;
       var checkboxes = this.state.cart ? this.state.cart.map(function (item, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          key: i
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          key: i,
+          className: "form-check"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          className: "form-check-label"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "form-check-input",
           id: "cart" + i,
           name: "cart" + i,
           type: "checkbox",
           value: item.id,
-          defaultChecked: true
+          "data-price": item.price,
+          defaultChecked: true,
+          onChange: _this3.checkCart
         }), item.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
       }) : null;
       var form = checkboxes && checkboxes.length === 0 ? "Your basket is empty" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -66170,7 +66201,11 @@ var Articles = /*#__PURE__*/function (_React$Component) {
         "data-dismiss": "modal"
       }, "\xD7")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-body"
-      }, form), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, form, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "total_price"
+      }, "Total price:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "total_price_num"
+      }, this.state.total_price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-footer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
