@@ -41,7 +41,8 @@ Prices and total price is still recorded in db only in dollars.
 
 Login and register actions are classic from Laravel. Only thing added is address field during registration proccess. There are no checks for address except that it is required.
 
-It is alsop said in pdf containing instructions, that user don't have to registered one to order stuff so i had to improvise. During checkout for unregistered user i.e. "customer" he/she is automatically added along with data entered(name and address) in customers table. Customers table is for customers and users table is for registered users who can also be customers, that how i saw it.
+It is also said in pdf containing instructions, that user don't have to registered one to order stuff so i had to improvise. During checkout for unregistered user i.e. "customer" he/she is automatically added along with data entered(name and address) in customers table. Customers table is for customers and users table is for registered users who can also be customers, that how i saw it.
+`Customer enters name and address on checkout while, for registered user, it is automatically populated.`
 
 Articles table:
 
