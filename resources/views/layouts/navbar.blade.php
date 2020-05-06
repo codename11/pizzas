@@ -67,7 +67,6 @@
     <!-- END nav -->
 
     
-    
     <section id="top" class="home-slider owl-carousel img" style="background-image: url(images/bg_1.jpg);">
       <div class="slider-item">
       	<div class="overlay"></div>
