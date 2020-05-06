@@ -1,79 +1,69 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Food Ordering Service
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Technologies used:
+ - Ajax
+ - React
+ - Laravel
 
-## About Laravel
+Free css template is taken from [here](https://themewagon.com/thank-you-for-downloading/?item_id=65812&dl=S1psNFo3ZTZ2U0svVWR6U0w5Snc5elFVUXBySW9hSFlhZktlOVpEMTVqZkVRc0dGNEk2eEljYzd1eHQ2RDhpQg==) , 
+credits for it goes to its author.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+My part is ![Articles listing](1.png). 
+A listing of articles divided by their type, e.g. pizzas, drinks, burgers and pastas, in singular.
+By clcking on particular tab, it lists all elements of particular type. Ex. if you click on `pasta`, it will list only pastas and so on ...
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+This only list pastas:
+![Only pastas](2.png)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Other example listing are same in nature.
 
-## Learning Laravel
+While deplying on Heroku i encountered problem which is well explained in this [SO post](https://stackoverflow.com/questions/50082602/heroku-accesing-laravel-storage-folder) accepted answer. Couldn't get around, since some solutions suggested list having some sort amazon host service for which is required credit card? which i don't have. Symlinks in project and heroku work, so there it is.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Fixed to right side is shopping basket.
+![basket](3.png)
+By hovering over, it pops out.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Basket showing how many articles are present:
+![basket](4.png)
 
-## Laravel Sponsors
+If you click on it it shows articles which can be removed from basket.
+![basket](5.png)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+It shows list of articles which can be removed and total price will be recalculated(dollars and euros).
+![basket](6.png)
+Prices and total price is still recorded in db only in dollars. 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
+Login and register actions are classic from Laravel. Only thing added is address field during registration proccess. There are no checks for address except that it is required.
 
-## Contributing
+It is alsop said in pdf containing instructions, that user don't have to registered one to order stuff so i had to improvise. During checkout for unregistered user i.e. "customer" he/she is automatically added along with data entered(name and address) in customers table. Customers table is for customers and users table is for registered users who can also be customers, that how i saw it.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Articles table:
+![table](11.png)  
 
-## Code of Conduct
+Users table:
+![table](7.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Customers table:
+![table](8.png)  
 
-## Security Vulnerabilities
+After check out, besides customer, there are also orders table and order_details table.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Orders table contain an id of particular order along with customer who order it, total_price of articles and fields when it's created and updated(timstamp fields from Laravel).
+![table](9.png) 
 
-## License
+Order_details table contain order_id along with article_id, quantity of said article and timestamps.
+![table](10.png) 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Everyone of these tables are connected via foreign keys and with appropriate Laravel relationships.
+
+Database schema:
+![schema](12.png) 
+
+If user is registered and logged in:
+![schema](13.png) 
+
+For anyone wanting to see how it looks live with db and all, you can check it out at [Heroku](https://pizzzas.herokuapp.com/)
+as i said, Heroku has it's own set of peculiarities which i couldn't resolve at the time. And it's my first time ever using Heroku.
+
+Notice: Heroku's issues for file uploads can be circumvented by uploadind directly into public folder of Laravel project, but consulting docs and various forums posts, it's not "by the book" thing to do so to speak. I've done file uploads with symlinks and everything Laravel before, but only on shared hosting, see my "MyTube" app. True, it miserable hosting with free plan, but it works as any other shared hosting.
+

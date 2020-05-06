@@ -187,7 +187,10 @@ class Articles extends React.Component {
                             <div id="total_price">Total price:</div>
 
                             <div id="total_price_num">
-                                {this.state.total_price}
+
+                                {"$"+this.state.total_price.toFixed(3)}<br/>
+                                {"In euros: " + (this.state.total_price*0.8).toFixed(3)+"€"}
+
                             </div>
 
                         </div>

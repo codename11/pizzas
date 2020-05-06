@@ -66205,7 +66205,7 @@ var Articles = /*#__PURE__*/function (_React$Component) {
         id: "total_price"
       }, "Total price:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "total_price_num"
-      }, this.state.total_price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "$" + this.state.total_price.toFixed(3), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "In euros: " + (this.state.total_price * 0.8).toFixed(3) + "€")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-footer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
