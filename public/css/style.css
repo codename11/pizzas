@@ -9042,3 +9042,19 @@ textarea.form-control {
   border-bottom: 1px solid whitesmoke;
   background-color: #fff3cd;
 }
+
+
+.testClass{
+  border: 1px solid red;
+  width: 100px;
+  height: 50px;
+  background-color: blue;
+}
+
+#myPagination{
+
+}
+
+.myPagination{
+
+}

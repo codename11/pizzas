@@ -45,12 +45,13 @@ class ArticlesController extends Controller
             $articlesAll = Article::all();
             $types = $articlesAll->pluck("type");
 
-            $articles = Article::where("type", "=", $type)->get();
+            $articles = Article::where("type", "=", $type)->paginate(6);
 
             $orders = Order::all();
             $order_details = Order_details::all();
             $customers = Customer::all();
             $response = array(
+                'pagination'=>(string) $articles->links(),
                 "authUser" => auth()->user() ? auth()->user() : null,
                 "articles" => $articles,
                 "types" => $types,

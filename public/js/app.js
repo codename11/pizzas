@@ -66102,7 +66102,7 @@ var Articles = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      var data = this.props.articlesData ? this.props.articlesData.map(function (item, i) {
+      var data = this.props.articlesData ? this.props.articlesData.data.map(function (item, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: i,
           className: "col-md-4 text-center"
@@ -66415,6 +66415,14 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
+      console.log(this.state);
+      var pagination = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "myPagination",
+        className: "myPagination",
+        dangerouslySetInnerHTML: {
+          __html: this.state.pagination
+        }
+      });
       var itemType = this.state.itemType;
       var types = this.state.types ? this.state.types.filter(function (item, i) {
         return _this3.state.types.indexOf(item) === i;
@@ -66462,7 +66470,7 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
         authUser: this.state.authUser,
         articlesData: this.state.articles,
         itemType: itemType
-      })));
+      })), pagination);
     }
   }]);
 
