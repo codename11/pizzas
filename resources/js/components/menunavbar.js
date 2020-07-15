@@ -62,6 +62,8 @@ class MenuNavbar extends React.Component {
     
     render(){
         
+        let pagination = <div id="myPagination" className="myPagination" dangerouslySetInnerHTML={{  __html: this.state.pagination}}></div>;
+
         let itemType = this.state.itemType;
 
         let types = this.state.types ? this.state.types.filter((item, i) => {
@@ -96,6 +98,8 @@ class MenuNavbar extends React.Component {
                     <Articles authUser={this.state.authUser} articlesData={this.state.articles} itemType={itemType}/>
 
                 </div>
+
+                {pagination}
 
             </div>
             

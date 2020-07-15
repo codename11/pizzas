@@ -52,6 +52,7 @@ class ArticlesController extends Controller
             $customers = Customer::all();
 
             $response = array(
+                'pagination'=>(string) $articles->links(),
                 "authUser" => auth()->user() ? auth()->user() : null,
                 "articles" => $articles,
                 "types" => $types,

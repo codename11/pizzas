@@ -111,7 +111,7 @@ class Articles extends React.Component {
 
     render(){
         
-        let data = this.props.articlesData ? this.props.articlesData.map((item, i) => {
+        let data = this.props.articlesData ? this.props.articlesData.data.map((item, i) => {
 
             return <div key={i} className="col-md-4 text-center">
                 <div className="menu-wrap">
