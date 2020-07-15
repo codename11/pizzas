@@ -50,6 +50,7 @@ class ArticlesController extends Controller
             $orders = Order::all();
             $order_details = Order_details::all();
             $customers = Customer::all();
+
             $response = array(
                 "authUser" => auth()->user() ? auth()->user() : null,
                 "articles" => $articles,
