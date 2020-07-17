@@ -71,6 +71,7 @@ class MenuNavbar extends React.Component {
             let page = null;
             
             if(tag==="a" && klasa==="page-link"){
+
                 event.preventDefault();
                 href = elem.href;
                 let str = "page=";
@@ -81,6 +82,12 @@ class MenuNavbar extends React.Component {
                     page: page
                 }, this.listArticles(null, page));
                 console.log(this.state);
+
+            }
+
+            if(tag==="a" && klasa.indexOf("nav-link")>-1){
+
+                $("button[data-toggle=collapse").click();
 
             }
 

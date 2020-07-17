@@ -66438,6 +66438,10 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
 
           console.log(_this3.state);
         }
+
+        if (tag === "a" && klasa.indexOf("nav-link") > -1) {
+          $("button[data-toggle=collapse").click();
+        }
       }); //this.listArticles(null,2); define starting page for pagination.
 
       this.listArticles();
