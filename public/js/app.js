@@ -66424,7 +66424,6 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
         var klasa = event.target.className;
         var href = null;
         var page = null;
-        var confirmElem = document.querySelectorAll("#myPagination > nav > ul > li > a");
 
         if (tag === "a" && klasa === "page-link") {
           event.preventDefault();

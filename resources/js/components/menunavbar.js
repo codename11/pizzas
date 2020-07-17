@@ -69,7 +69,6 @@ class MenuNavbar extends React.Component {
             let klasa = event.target.className;
             let href = null;
             let page = null;
-            let confirmElem = document.querySelectorAll("#myPagination > nav > ul > li > a");
             
             if(tag==="a" && klasa==="page-link"){
                 event.preventDefault();
