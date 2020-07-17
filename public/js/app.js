@@ -66112,7 +66112,7 @@ var Articles = /*#__PURE__*/function (_React$Component) {
           href: "#",
           className: "menu-img img mb-4",
           style: {
-            backgroundImage: "url(../article_images/about.jpg)"
+            backgroundImage: "url(../../article_images/about.jpg)"
           }
         }), ";", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "text"
