@@ -115,7 +115,7 @@ class Articles extends React.Component {
 
             return <div key={i} className="col-md-4 text-center">
                 <div className="menu-wrap">
-                    <a href="#" className="menu-img img mb-4" style={{ backgroundImage: `url(../../article_images/about.jpg)`}}></a>;
+                    <a href="#" className="menu-img img mb-4" style={{ backgroundImage: `url(../../article_images/beer1.jpg)`}}></a>;
                         <div className="text">
                             <h3><a href="#">{item.title}</a></h3>
                             <p>{item.body.substring(0, 60)}</p>
