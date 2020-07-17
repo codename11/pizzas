@@ -66420,13 +66420,12 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
 
       document.addEventListener("click", function (event) {
         var elem = event.target;
-        var tag = event.target.tagName.toLowerCase();
+        var tag = event.target.tagName;
         var klasa = event.target.className;
         var href = null;
         var page = null;
-        var confirmElem = document.querySelectorAll("#myPagination > nav > ul > li > a");
 
-        if (tag === "a" && klasa === "page-link") {
+        if (tag === "A" && klasa === "page-link") {
           event.preventDefault();
           href = elem.href;
           var str = "page=";
@@ -66438,6 +66437,10 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
           }, _this3.listArticles(null, page));
 
           console.log(_this3.state);
+        }
+
+        if (tag === "a" && klasa.indexOf("nav-link") > -1) {
+          $("button[data-toggle=collapse").click();
         }
       }); //this.listArticles(null,2); define starting page for pagination.
 
