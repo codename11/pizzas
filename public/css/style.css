@@ -9042,3 +9042,55 @@ textarea.form-control {
   border-bottom: 1px solid whitesmoke;
   background-color: #fff3cd;
 }
+
+.testClass{
+  border: 1px solid red;
+  width: 100px;
+  height: 50px;
+  background-color: blue;
+}
+
+#myPagination{
+  
+}
+
+.myPagination{
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, 0) !important;
+  -webkit-transform: translate(-50%, 0) !important;
+}
+
+.wrapp{
+  height: 1100px;
+}
+
+ul.pagination > li.page-item > span.page-link, ul.pagination > li.page-item > a.page-link{
+    border-color: rgba(255, 255, 255, 0.8);
+    background: none;
+    border-width: 1px;
+    color: #fff;
+    width: 100% !important;
+    height: auto;
+}
+
+#myPagination > nav > ul > li.page-item > span:hover, #myPagination > nav > ul > li.page-item > a:hover{
+  background: orange;
+  border-width: 1px;
+  color: black;
+}
+
+#myPagination > nav > ul > li.page-item.disabled:hover{
+  background: orange;
+  border-width: 1px;
+  color: black;
+  cursor: default;
+}
+
+#myPagination > nav > ul > li.page-item.active > span{
+  background: darkorange;
+  border-width: 1px;
+  color: black;
+  cursor: default;
+}
