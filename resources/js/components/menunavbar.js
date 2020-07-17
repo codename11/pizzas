@@ -7,12 +7,14 @@ class MenuNavbar extends React.Component {
 
         super(props);
         this.state = {
+            page: null,
             types: [],
             itemType: "pizza",
             itemHrefId: "#v-pills-1",
         };
         this.getClick = this.getClick.bind(this);
         this.listArticles = this.listArticles.bind(this);
+        this.testFunk = this.testFunk.bind(this);
     }
 
     getClick(e){
@@ -21,18 +23,18 @@ class MenuNavbar extends React.Component {
         this.setState({
             itemType: e.target.innerHTML,
             itemHrefId: e.target.href.substring(slashLastIndex+1, e.target.href.length),
-        }, this.listArticles(e.target.innerHTML));
+        }, this.listArticles(e.target.innerHTML, null));
         
     }
 
-    listArticles(type){
-    
+    listArticles(type, page){
+        
         let itemType = type ? type : null;
 
         $.ajax({
             url: '/articles',
             type: 'GET',
-            data: {type: itemType},
+            data: {type: itemType, page: page && parseInt(page) && parseInt(page) > 0  ? page : 1, },
             dataType: 'JSON',
     
             success: (response) => { 
@@ -54,14 +56,43 @@ class MenuNavbar extends React.Component {
 
     }
 
+    testFunk(page){
+        console.log(page);
+    }
+
     componentDidMount(){
         
+        document.addEventListener("click", (event) => {
+            event.preventDefault();
+            let elem = event.target;
+            let tag = event.target.tagName.toLowerCase();
+            let klasa = event.target.className;
+            let href = null;
+            let page = null;
+
+            if(tag==="a" && klasa==="page-link"){
+
+                href = elem.href;
+                let str = "page=";
+                let pos1 = href.indexOf(str);
+                page = href.substr(pos1+str.length);
+
+                this.setState({
+                    page: page
+                }, this.listArticles(null, page));
+                console.log(this.state);
+
+            }
+
+        });
+
+        //this.listArticles(null,2); define starting page for pagination.
         this.listArticles();
 
     }
     
     render(){
-        console.log(this.state);
+        //console.log(this.state);
         
         let pagination = <div id="myPagination" className="myPagination" dangerouslySetInnerHTML={{  __html: this.state.pagination}}></div>;
         
@@ -83,7 +114,7 @@ class MenuNavbar extends React.Component {
         }) : null;
 
         return (
-            <div>
+            <div className="wrapp">
 
                 <div className="container">
 

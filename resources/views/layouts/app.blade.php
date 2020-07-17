@@ -77,24 +77,5 @@
         </main>
     </div>
 
-    <script type="text/javascript">
-        
-        /*$(document).ready(() => {
-            
-            $('#pagination a').on('click', (e) => {
-
-                e.preventDefault();
-
-                let url = $(this).attr('href');
-
-                $.post(url, $('#search').serialize(), (data) => {
-                    $('#posts').html(data);
-                });
-
-            });
-      
-        });*/
-
-    </script>
 </body>
 </html>
