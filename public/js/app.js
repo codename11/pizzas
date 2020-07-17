@@ -66419,14 +66419,15 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       document.addEventListener("click", function (event) {
-        event.preventDefault();
         var elem = event.target;
         var tag = event.target.tagName.toLowerCase();
         var klasa = event.target.className;
         var href = null;
         var page = null;
+        var confirmElem = document.querySelectorAll("#myPagination > nav > ul > li > a");
 
         if (tag === "a" && klasa === "page-link") {
+          event.preventDefault();
           href = elem.href;
           var str = "page=";
           var pos1 = href.indexOf(str);
