@@ -66420,12 +66420,12 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
 
       document.addEventListener("click", function (event) {
         var elem = event.target;
-        var tag = event.target.tagName.toLowerCase();
+        var tag = event.target.tagName;
         var klasa = event.target.className;
         var href = null;
         var page = null;
 
-        if (tag === "a" && klasa === "page-link") {
+        if (tag === "A" && klasa === "page-link") {
           event.preventDefault();
           href = elem.href;
           var str = "page=";

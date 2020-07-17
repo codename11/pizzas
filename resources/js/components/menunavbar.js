@@ -65,12 +65,12 @@ class MenuNavbar extends React.Component {
         document.addEventListener("click", (event) => {
             
             let elem = event.target;
-            let tag = event.target.tagName.toLowerCase();
+            let tag = event.target.tagName;
             let klasa = event.target.className;
             let href = null;
             let page = null;
             
-            if(tag==="a" && klasa==="page-link"){
+            if(tag==="A" && klasa==="page-link"){
 
                 event.preventDefault();
                 href = elem.href;
