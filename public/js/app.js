@@ -66112,7 +66112,7 @@ var Articles = /*#__PURE__*/function (_React$Component) {
           href: "#",
           className: "menu-img img mb-4",
           style: {
-            backgroundImage: "url(storage/images/" + item.thumbnail + ")"
+            backgroundImage: "url(../images/about.jpg)"
           }
         }), ";", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "text"
@@ -66363,12 +66363,14 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
+      page: null,
       types: [],
       itemType: "pizza",
       itemHrefId: "#v-pills-1"
     };
     _this.getClick = _this.getClick.bind(_assertThisInitialized(_this));
     _this.listArticles = _this.listArticles.bind(_assertThisInitialized(_this));
+    _this.testFunk = _this.testFunk.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -66379,11 +66381,11 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
       this.setState({
         itemType: e.target.innerHTML,
         itemHrefId: e.target.href.substring(slashLastIndex + 1, e.target.href.length)
-      }, this.listArticles(e.target.innerHTML));
+      }, this.listArticles(e.target.innerHTML, null));
     }
   }, {
     key: "listArticles",
-    value: function listArticles(type) {
+    value: function listArticles(type, page) {
       var _this2 = this;
 
       var itemType = type ? type : null;
@@ -66391,7 +66393,8 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
         url: '/articles',
         type: 'GET',
         data: {
-          type: itemType
+          type: itemType,
+          page: page && parseInt(page) && parseInt(page) > 0 ? page : 1
         },
         dataType: 'JSON',
         success: function success(response) {
@@ -66406,15 +66409,45 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "testFunk",
+    value: function testFunk(page) {
+      console.log(page);
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this3 = this;
+
+      document.addEventListener("click", function (event) {
+        event.preventDefault();
+        var elem = event.target;
+        var tag = event.target.tagName.toLowerCase();
+        var klasa = event.target.className;
+        var href = null;
+        var page = null;
+
+        if (tag === "a" && klasa === "page-link") {
+          href = elem.href;
+          var str = "page=";
+          var pos1 = href.indexOf(str);
+          page = href.substr(pos1 + str.length);
+
+          _this3.setState({
+            page: page
+          }, _this3.listArticles(null, page));
+
+          console.log(_this3.state);
+        }
+      }); //this.listArticles(null,2); define starting page for pagination.
+
       this.listArticles();
     }
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
+      //console.log(this.state);
       var pagination = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "myPagination",
         className: "myPagination",
@@ -66424,12 +66457,12 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
       });
       var itemType = this.state.itemType;
       var types = this.state.types ? this.state.types.filter(function (item, i) {
-        return _this3.state.types.indexOf(item) === i;
+        return _this4.state.types.indexOf(item) === i;
       }) : null;
       var menuTabs = types ? types.map(function (item, i) {
         if (i === 0) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-            onClick: _this3.getClick,
+            onClick: _this4.getClick,
             key: i,
             className: "nav-link active text-capitalize",
             id: "v-pills-" + (i + 1) + "-tab",
@@ -66441,7 +66474,7 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
           }, item);
         } else {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-            onClick: _this3.getClick,
+            onClick: _this4.getClick,
             key: i,
             className: "nav-link text-capitalize",
             id: "v-pills-" + (i + 1) + "-tab",
@@ -66453,7 +66486,9 @@ var MenuNavbar = /*#__PURE__*/function (_React$Component) {
           }, item);
         }
       }) : null;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "wrapp"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-12 nav-link-wrap mb-5"
