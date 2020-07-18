@@ -61,7 +61,7 @@ class MenuNavbar extends React.Component {
     }
 
     componentDidMount(){
-
+        
         document.addEventListener("click", (event) => {
             
             let elem = event.target;
@@ -84,7 +84,7 @@ class MenuNavbar extends React.Component {
                 console.log(this.state);
 
             }
-
+            
         });
 
         //this.listArticles(null,2); define starting page for pagination.

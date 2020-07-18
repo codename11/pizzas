@@ -32,11 +32,12 @@
     <link href="{{ asset('css/flaticon.css') }}" rel="stylesheet">
     <link href="{{ asset('css/icomoon.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
     <script src="{{ asset('js/app.js') }}" defer></script>
     
   </head>
   <body data-spy="scroll" data-target=".ftco_navbar" data-offset="160">
-  	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+  	<nav class="navbar navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 		      <a class="navbar-brand" href="index.html"><span class="flaticon-pizza-1 mr-1"></span>Pizza<br><small>Delicous</small></a>
 		      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -693,10 +694,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-<!--<script src="{{ asset('js/jquery.min.js') }}" defer></script>-->
 <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}" defer></script>
-<!--<script src="{{ asset('js/popper.min.js') }}" defer></script>-->
-<!--<script src="{{ asset('js/bootstrap.min.js') }}" defer></script>-->
 <script src="{{ asset('js/jquery.easing.1.3.js') }}" defer></script>
 <script src="{{ asset('js/jquery.waypoints.min.js') }}" defer></script>
 <script src="{{ asset('js/jquery.stellar.min.js') }}" defer></script>
@@ -710,10 +708,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNhe45otXCcDn2ZV1dqla-IyYTyLm1HDU&sensor=false"></script>
 <script src="{{ asset('js/google-map.js') }}" defer></script>
 <script src="{{ asset('js/main.js') }}" defer></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" defer></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" defer></script>
 
 </body>
 </html>
