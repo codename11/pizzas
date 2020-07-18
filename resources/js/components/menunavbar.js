@@ -85,6 +85,12 @@ class MenuNavbar extends React.Component {
 
             }
 
+            if(tag==="a" && klasa.indexOf("nav-link")>-1){
+
+                $("button[data-toggle=collapse").click();
+
+            }
+            
         });
 
         //this.listArticles(null,2); define starting page for pagination.
