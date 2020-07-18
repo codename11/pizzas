@@ -6,6 +6,8 @@ class Articles extends React.Component {
 
         super(props);
         this.state = {
+            deliveryCosts: 5,
+            usd: null,
             cart: [],
             cartLen: null,
             elemchecked: new Map(),
@@ -36,10 +38,8 @@ class Articles extends React.Component {
         let total_price = 0;
         for(let i=0;i<prices.length;i++){
 
-            
             total_price +=  Number(prices[i]);
             
-
         }
 
         this.setState({
@@ -101,10 +101,32 @@ class Articles extends React.Component {
     addToCart(e, item){
         e.preventDefault();
         
-        this.setState({
-            cart: [...this.state.cart, item],
-            cartLen: this.state.cart.length+1,
-            total_price: this.state.total_price + Number(item.price),
+        let url = "https://api.exchangeratesapi.io/latest";
+        $.ajax({
+            url: url,
+            type: "GET",
+            dataType: "JSON",
+    
+            success: (response) => { 
+
+                console.log("success");
+                console.log(response);  
+                
+                this.setState({
+                    usd: response.rates["USD"],
+                    cart: [...this.state.cart, item],
+                    cartLen: this.state.cart.length+1,
+                    total_price: this.state.total_price + Number(item.price),
+                });
+                
+            },
+            error: (response) => {
+
+                console.log("error");
+                console.log(response);
+                
+            }
+
         });
 
     }
@@ -130,10 +152,11 @@ class Articles extends React.Component {
         let checkboxes = this.state.cart ? this.state.cart.map((item, i) => {
 
             return <div key={i} className="form-check">
-                <label className="form-check-label">
-                    <input className="form-check-input" id={"cart"+i} name={"cart"+i} type="checkbox" value={item.id} data-price={item.price} defaultChecked onChange={this.checkCart}/>
-                    {item.title}
-                </label><br/>
+                
+                <input className="form-check-input" id={"cart"+i} name={"cart"+i} type="checkbox" value={item.id} data-price={item.price} defaultChecked onChange={this.checkCart}/>  
+                <label className="form-check-label">{item.title}</label>
+                <br/>
+
           </div>;
 
         }) : null;
@@ -154,6 +177,34 @@ class Articles extends React.Component {
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>;
 
+            let dollars = this.state.total_price ? "$"+this.state.total_price.toFixed(2) : "";
+            let euros = this.state.total_price ? "In euros: " + (this.state.total_price / this.state.usd).toFixed(2)+"€" : "";
+            let delCost = this.state.deliveryCosts ? "Delivery: "+this.state.deliveryCosts+"%" : "";
+            let totPinDolWDel = this.state.total_price && this.state.deliveryCosts ? "Total price with delivery: $"+(this.state.total_price+((this.state.total_price/100)*this.state.deliveryCosts)).toFixed(2) : "";
+            let totPinEurWDel = this.state.total_price && this.state.usd && this.state.deliveryCosts ? "Total price with delivery: "+((this.state.total_price / this.state.usd)+(((this.state.total_price / this.state.usd)/100)*this.state.deliveryCosts)).toFixed(2)+"€" : "";
+            let usdToEur = this.state.usd ? this.state.usd : "";
+
+            let priceList = dollars && euros ? <div>
+                <div id="total_price">Total price:</div>
+
+                <div id="total_price_num">
+
+                    {dollars}<br/>
+                    {euros}<br/>
+                    {dollars && euros ? delCost : ""}<br/>
+                    {totPinDolWDel}<br/>
+                    {totPinEurWDel}
+                    
+                    <div className="exchWrapper">Current exchange rate for euro is: 
+                        <span className="usdToEur">
+                            {usdToEur.toFixed(2)}$
+                        </span>
+                    </div>
+
+                </div>
+                
+            </div> : "";
+
         return (
   
             <div>
@@ -173,25 +224,19 @@ class Articles extends React.Component {
                 </div>
                 
                 <div className="modal" id="myModal">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
+                    <div className="animated bounceIn modal-dialog">
+                        <div className="modal-content fancyDialog">
 
                         <div className="modal-header">
                             <p className="modal-title">Your order:</p>
-                            <button type="button" className="close" data-dismiss="modal">&times;</button>
+                            <button type="button" className="close fancyClose" data-dismiss="modal">&times;</button>
                         </div>
 
                         <div className="modal-body">
                             
                             {form}
-                            <div id="total_price">Total price:</div>
-
-                            <div id="total_price_num">
-
-                                {"$"+this.state.total_price.toFixed(3)}<br/>
-                                {"In euros: " + (this.state.total_price*0.8).toFixed(3)+"€"}
-
-                            </div>
+                            
+                            {priceList}
 
                         </div>
 

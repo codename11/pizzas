@@ -16,6 +16,12 @@ class AddAddressToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string("address");
         });
+
+        DB::table('users')->insert(
+            array(
+                "address" => "yourAdress",
+            )
+        );
     }
 
     /**
