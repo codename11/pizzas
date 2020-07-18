@@ -65,8 +65,8 @@ class MenuNavbar extends React.Component {
         document.addEventListener("click", (event) => {
             
             let elem = event.target;
-            let tag = event.target.tagName;
-            let klasa = event.target.className;
+            let tag = elem.tagName;
+            let klasa = elem.className;
             let href = null;
             let page = null;
             
@@ -82,12 +82,6 @@ class MenuNavbar extends React.Component {
                     page: page
                 }, this.listArticles(null, page));
                 console.log(this.state);
-
-            }
-
-            if(tag==="a" && klasa.indexOf("nav-link")>-1){
-
-                $("button[data-toggle=collapse").click();
 
             }
 
