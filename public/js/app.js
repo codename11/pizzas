@@ -66181,7 +66181,7 @@ var Articles = /*#__PURE__*/function (_React$Component) {
           href: "#",
           className: "menu-img img mb-4",
           style: {
-            backgroundImage: "url(storage/images/" + item.thumbnail + ")"
+            backgroundImage: "url(../../article_images/" + item.thumbnail + ")"
           }
         }), ";", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "text"
