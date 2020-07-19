@@ -10,14 +10,12 @@ credits for it goes to its author.
 
 My part is ![Articles listing](1.png). 
 A listing of articles divided by their type, e.g. pizzas, drinks, burgers and pastas, in singular.
-By clcking on particular tab, it lists all elements of particular type. Ex. if you click on `pasta`, it will list only pastas and so on ...
+By clicking on particular tab, it lists all elements of particular type. Ex. if you click on `pasta`, it will list only pastas and so on ...
 
 This only list pastas:
 ![Only pastas](2.png)
 
 Other example listing are same in nature.
-
-While deplying on Heroku i encountered problem which is well explained in this [SO post](https://stackoverflow.com/questions/50082602/heroku-accesing-laravel-storage-folder) accepted answer. Couldn't get around, since some solutions suggested list having some sort amazon host service for which is required credit card? which i don't have. Symlinks in project and heroku work, so there it is.
 
 Fixed to right side is shopping basket.
 
@@ -75,16 +73,30 @@ If user is registered and logged in:
 
 ![schema](13.png) 
 
-For anyone wanting to see how it looks live with db and all, you can check it out at [Heroku](https://pizzzas.herokuapp.com/)
-as i said, Heroku has it's own set of peculiarities which i couldn't resolve at the time. And it's my first time ever using Heroku.
+For anyone wanting to see how it looks live with db and all, you can check it out at [Heroku](https://pizzzas.herokuapp.com/) .
 
-Notice: Heroku's issues for file uploads can be circumvented by uploadind directly into public folder of Laravel project, but consulting docs and various forums posts, it's not "by the book" thing to do so to speak. I've done file uploads with symlinks and everything Laravel before, but only on shared hosting, see my "MyTube" app. True, it miserable hosting with free plan, but it works as any other shared hosting.
-Also, as is NOT stated in pdf with user stories, there are no ways of entering new articles, except via Laravel database seeders or manually(ugh) writing queries.
-
-Also, i used different branch for Heroku because of it's peculiarities.
+I used different branch for Heroku, because of it's peculiarities.
 
 Heroku branch:
 [alt](https://github.com/codename11/pizzas/tree/herokubranch)
 
 and Master branch which have all functionalities including uploaded images:
 [main](https://github.com/codename11/pizzas/tree/master)
+
+### Addendum: 15.7.2020 to 19.7.2020
+
+ - Fixed not showing images issue. It was because Heroku ignores symlink created by Laravel. It's resolved by adding uploads directly to public folder. There is no way around it when you use Heroku.
+
+ - Resolved main menu not closing after clicking on menu items.
+
+ - Changed default page from `Dashboard` to main page redirects.
+
+ - Added pagination with 6 articles per page. It was done with Ajax by blocking normal flow i.e. when you click in Laravel pagination links, url gets parameter `page=Num` when `Num` is number. Basically ajax intercepts normal behaviour and send a call of it's own to controller method where pagination originates.   
+ 
+ - Changed default styling of Laravel pagination.
+
+ - Restyled order details modal. Look snazzier now.
+ 
+ - Added Cors middleware for fonts.
+
+ - Recreated symlink.
