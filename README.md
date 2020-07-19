@@ -95,6 +95,8 @@ and Master branch which have all functionalities including uploaded images:
  
  - Changed default styling of Laravel pagination.
 
+ - Added external api for usd/eur conversion and delivery charges.
+
  - Restyled order details modal. Look snazzier now.
  
  - Added Cors middleware for fonts.
