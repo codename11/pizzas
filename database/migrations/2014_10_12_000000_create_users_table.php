@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string("address");
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -28,6 +29,7 @@ class CreateUsersTable extends Migration
             array(
                 "name" => "yourName",
                 "email" => "yourmail@somemail.com",
+                "address" => "yourAdress",
                 "email_verified_at" => null,
                 "password" => Hash::make('yourPassword123'),
                 "created_at" => Carbon::now()->format('Y-m-d H:i:s'),
